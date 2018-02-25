@@ -1,5 +1,6 @@
 package com.example.android.swipeapp;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.View;
 public class Main3Activity extends AppCompatActivity {
 
     int score =0;
+    int secondsleft;
 
 
     @Override
@@ -38,4 +40,7 @@ public class Main3Activity extends AppCompatActivity {
             return true;}
         });
     }
+
+
+
 }

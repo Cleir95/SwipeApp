@@ -5,6 +5,7 @@ package com.example.android.swipeapp;
  */
 
 import android.content.Context;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -15,12 +16,35 @@ import android.view.View.OnTouchListener;
 public class OnSlidingListener implements OnTouchListener {
 
     private final GestureDetector gestureDetector;
+    int secondsleft;
 
     public OnSlidingListener(Context context){
         gestureDetector = new GestureDetector(context, new GestureListener());
     }
 
+    CountDownTimer timer;
+    {
+        timer = new CountDownTimer(1000, 1000) {
+
+            @Override
+            public void onTick(long timeleft) {
+                secondsleft = (int) (timeleft/1000);
+
+            }
+
+            @Override
+            public void onFinish() {
+                Log.v("asf", "timer");
+
+            }
+        };
+
+    }
+
     public boolean onTouch(View v, MotionEvent event) {
+        if(event.getAction()==MotionEvent.ACTION_UP){
+            timer.start();
+        }
         return gestureDetector.onTouchEvent(event);
     }
 
