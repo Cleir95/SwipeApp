@@ -12,6 +12,18 @@
         android:background="#FF0000"
         android:id="@+id/myView"/>
 
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#52E503"
+        android:textSize="56sp" />
+
+
 
 
 
