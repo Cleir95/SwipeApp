@@ -15,13 +15,8 @@ import android.widget.Toast;
 
 
 public class Main3Activity extends AppCompatActivity {
-
-     int score = 0;
-    int secondsleft;
+    int score = 0;
     public TextView textView;
-    public int getScore(){
-        return score;
-    }
 
 
     @Override
@@ -37,29 +32,29 @@ public class Main3Activity extends AppCompatActivity {
             timer = new CountDownTimer(1000, 1000) {
 
                 @Override
-                public void onTick(long timeleft) {
-                    secondsleft = (int) (timeleft / 1000);
-
-                }
+                public void onTick(long timeleft) {}
 
                 @Override
                 public void onFinish() {
-                        Log.v("stupid timer", "I am so stupid");
+                    Log.v("stupid timer", "I am so stupid");
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                           Main3Activity.this );
+                            Main3Activity.this);
+
+
 
                     // set title
                     alertDialogBuilder.setTitle("GAME OVER");
 
                     alertDialogBuilder
-                            .setMessage("Score  "+ score + "\n Play again" );
-                    alertDialogBuilder .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int id) {
-                            // if this button is clicked, close
-                            // current activity
-                            Main3Activity.this.finish();
-                        }
-                    });
+                            .setMessage("Score  " + score + "\n Play again");
+                    alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // if this button is clicked, close
+                                    // current activity
+                                    Main3Activity.this.finish();
+                                }
+                            });
+
 
                     // create alert dialog
                     AlertDialog alertDialog = alertDialogBuilder.create();
@@ -68,27 +63,10 @@ public class Main3Activity extends AppCompatActivity {
                     alertDialog.show();
 
 
-
-
-            /*   Intent gameOver =new Intent(Main3Activity.this, GameOver.class);
-                    Log.d("jfjsldjfsja", "I am so stupid" + score);
-                    gameOver.putExtra("somevariable",score);
-                    Log.d("before", "I am so stupid" + score);
-
-                    startActivity(gameOver);*/
-
-
-                 //   startActivity (new Intent(Main3Activity.this, MainActivity.class));
-
-
-
-
-
                 }
             };
 
         }
-
 
 
         myView.setOnTouchListener(new OnSlidingListener(this) {
@@ -135,15 +113,10 @@ public class Main3Activity extends AppCompatActivity {
     }
 
 
-
     public void displayScore(int score) {
         TextView scoreView = (TextView) findViewById(R.id.score);
         scoreView.setText(String.valueOf(score));
-
     }
-
-
-
 
 
 }
