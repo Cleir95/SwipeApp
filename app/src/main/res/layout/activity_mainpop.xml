@@ -7,7 +7,6 @@
     tools:context="com.example.android.swipeapp.GameOver">
 
 
-
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
@@ -15,8 +14,8 @@
         android:layout_marginBottom="24dp"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
-        android:text="0"
-        android:textColor="#52E503"
+        android:text="6"
+        android:background="#FF0000"
         android:textSize="56sp" />
 
 

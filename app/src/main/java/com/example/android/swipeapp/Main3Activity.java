@@ -16,9 +16,13 @@ import android.widget.Toast;
 
 public class Main3Activity extends AppCompatActivity {
 
-    public int score = 0;
+     int score = 0;
     int secondsleft;
     public TextView textView;
+    public int getScore(){
+        return score;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,7 @@ public class Main3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
         View myView = (View) findViewById(R.id.myView);
         textView = (TextView) this.findViewById(R.id.time);
+
 
         final CountDownTimer timer;
         {
@@ -39,11 +44,41 @@ public class Main3Activity extends AppCompatActivity {
 
                 @Override
                 public void onFinish() {
-                    Log.v("stupid timer", "I am so stupid");
+                        Log.v("stupid timer", "I am so stupid");
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                           Main3Activity.this );
+
+                    // set title
+                    alertDialogBuilder.setTitle("GAME OVER");
+
+                    alertDialogBuilder
+                            .setMessage("Score  "+ score + "\n Play again" );
+                    alertDialogBuilder .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            // if this button is clicked, close
+                            // current activity
+                            Main3Activity.this.finish();
+                        }
+                    });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
 
 
-                  //startActivity (new Intent(Main3Activity.this, MainActivity.class));
-                    startActivity (new Intent(Main3Activity.this, GameOver.class));
+
+
+            /*   Intent gameOver =new Intent(Main3Activity.this, GameOver.class);
+                    Log.d("jfjsldjfsja", "I am so stupid" + score);
+                    gameOver.putExtra("somevariable",score);
+                    Log.d("before", "I am so stupid" + score);
+
+                    startActivity(gameOver);*/
+
+
+                 //   startActivity (new Intent(Main3Activity.this, MainActivity.class));
 
 
 
@@ -106,7 +141,6 @@ public class Main3Activity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
 
     }
-
 
 
 
